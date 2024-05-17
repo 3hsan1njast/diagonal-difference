@@ -1,2 +1,2 @@
-# diagonal-difference
+# Diagonal Difference
 Calculating Diagonal Difference
