@@ -1,12 +1,21 @@
-fun main() {
-    println(utopianTree(4))
-}
+import kotlin.math.abs
 
-fun utopianTree(n: Int): Int {
-    var height = 1
-    (0..<n).forEach { i ->
-        if (i % 2 == 0) height *= 2
-        else height++
+fun diagonalDifference(arr: Array<Array<Int>>): Int {
+    var primarySum = 0
+    var secondarySum = 0
+
+    for (row in arr.indices) {
+        for (column in arr.indices) {
+            if (row == column) {
+                primarySum += arr[row][column]
+                if (row + column == arr.size - 1) {
+                    secondarySum += arr[row][column]
+                }
+            } else if (row + column == arr.size - 1) {
+                secondarySum += arr[row][column]
+            }
+        }
     }
-    return height
+
+    return abs(primarySum - secondarySum)
 }
